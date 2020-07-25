@@ -1,5 +1,7 @@
 import React from 'react';
+import { Input } from 'antd';
 import { Note } from '@/utils/const';
+import styles from './style.less';
 
 interface ContentEdictorProps {
   data: Note;
@@ -22,12 +24,15 @@ const ContentEdictor: React.FC<ContentEdictorProps> = ({
   };
 
   return (
-    <div>
-      <input
+    <div className={styles['content-edict']}>
+      <Input
+        placeholder="请输入标题"
         value={title}
         onChange={e => handleChangeData('title', e.target.value)}
       />
-      <textarea
+      <Input.TextArea
+        autoSize
+        placeholder="写下你的想法"
         value={content}
         onChange={e => handleChangeData('content', e.target.value)}
       />

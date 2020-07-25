@@ -1,5 +1,18 @@
 .note-item {
+  width: 100%;
+
+  .one-line {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   h1 {
     font-size: large;
+    .one-line();
+  }
+
+  article {
+    .one-line();
   }
 }

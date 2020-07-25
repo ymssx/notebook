@@ -11,8 +11,8 @@ const NoteItem: React.FC<NodeItemProps> = ({ data }) => {
 
   return (
     <div className={styles['note-item']}>
-      <h1>{title}</h1>
-      <article>{content}</article>
+      <h1>{title || '无标题'}</h1>
+      <article>{content || '[还没有内容]'}</article>
     </div>
   );
 };

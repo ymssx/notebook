@@ -17,11 +17,20 @@ export default {
     noteList: mockList,
   },
   reducers: {
-    'set-note'(
+    'set-notes'(
       state: NoteState,
       { payload: newNoteList }: { payload: Note[] },
     ) {
       return { ...state, noteList: newNoteList };
+    },
+    'set-note'(
+      state: NoteState,
+      { payload: noteData }: { payload: { index: number; data: Note } },
+    ) {
+      const { index, data } = noteData;
+      const copyList = [...state.noteList];
+      copyList[index] = data;
+      return { ...state, noteList: copyList };
     },
     'add-note'(state: NoteState, { payload: newNote }: { payload: Note }) {
       const newList = [...state.noteList, newNote];
@@ -32,5 +41,8 @@ export default {
       copyList.splice(index, 1);
       return { ...state, noteList: copyList };
     },
+  },
+  subscriptions: {
+    localStorageChange() {},
   },
 };

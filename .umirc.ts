@@ -5,7 +5,7 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/index' },
-    { path: '/note/:index', component: '@/pages/NoteEdict' },
+    { path: '/notebook/', component: '@/pages/index' },
+    { path: '/notebook/note/:index', component: '@/pages/NoteEdict' },
   ],
 });
